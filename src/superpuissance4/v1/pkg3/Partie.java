@@ -155,7 +155,7 @@ public class Partie {
 		boolean partieGagnee;
 		
 		System.out.println(joueur.Nom + ", c'est votre tour de jouer.");
-		System.out.print("Voulez-vous jouer un jeton ou en récupérer un ? [j(ouer)|r(écupérer)");
+		System.out.print("Que voulez-vous faire ? [j(ouer)|r(écupérer)");
 		if (joueur.nombreDesintegrateurs > 0) {
 			System.out.print("|d(ésintégrer)");
 		}
