@@ -174,6 +174,10 @@ public class Partie {
 					System.out.println("Votre jeton tombe en dehors de l'espace de jeu."
 							+ " Vous le conservez, mais visez mieux la prochaine fois ! ;)");
 					return false;
+				} else if (joueur.nombreJetonsRestants == 0) {
+					System.out.println("Vous n'avez plus de jetons. Mais vérifiez "
+							+ "quand même au fond de vos poches, on ne sait jamais.");
+					return false;
 				} else {
 					jeton_joue = joueur.ListeJetons[joueur.nombreJetonsRestants-1];
 					succes_jeu = grilleJeu.ajouterJetonDansColonne(jeton_joue, joueur, colonne_jouee);
