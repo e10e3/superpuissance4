@@ -16,9 +16,7 @@ public class SuperPuissance4V13 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-		int indiceJoueurActuel;
-		
+    public static void main(String[] args) {		
 		/* On crée la partie et on l'initialise */
 		Partie partie = new Partie();
 		
