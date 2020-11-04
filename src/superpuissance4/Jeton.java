@@ -4,7 +4,7 @@
  * TP 3, v1.3
  * 
  */
-package superpuissance4.v1.pkg3;
+package superpuissance4;
 
 /**
  * Implémente les jetons. Un jeton n'a qu'un seul attribut : sa couleur, qui le
