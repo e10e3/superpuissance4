@@ -235,7 +235,42 @@ public class Partie {
 				
 		/* Désintégrer un jeton */
 		} else if (reponse.equals("désintégrer") || reponse.equals("d")) {
-			return false;
+			int coord_i;
+				int coord_j;
+				boolean joueur1Gagne;
+				boolean joueur2Gagne;
+				
+				System.out.print("Entrez la ligne du jeton à récupérer : ");
+				coord_i = sc.nextInt()-1;
+				System.out.print("Entrez la colonne du jeton à récupérer : ");
+				coord_j = sc.nextInt()-1;
+				if (!grilleJeu.celluleOccupee(coord_i,coord_j)) {
+					System.out.println("Il n'y a pas de jeton à récupérer aux coordonnées indiquées. Vous ferez mieux la prochaine fois !");
+					return false;
+				} else if (grilleJeu.Cellules[coord_i][coord_j].recupererJeton().lireCouleur().equals(joueur.lireCouleur())) {
+					System.out.println("Vous ne pouvez pas désintégrer un de vos propre jetons.");
+					return false;
+				} else {
+					grilleJeu.supprimerJeton(coord_i, coord_j);
+					grilleJeu.tasserGrille(coord_j);
+					grilleJeu.afficherGrillesurConsole();
+					joueur1Gagne = grilleJeu.estGagnantePourJoueur(ListeJoueur[0]);
+					joueur2Gagne = grilleJeu.estGagnantePourJoueur(ListeJoueur[1]);
+					if (joueur1Gagne && joueur2Gagne) {
+						System.out.println("Quel dommage "+joueur.Nom+", vous"
+								+ " avez perdu. Votre action a eu trop de"
+								+ " conséquences.");
+						return true;
+					} else if (joueur1Gagne) {
+						System.out.println("Félicitations "+ListeJoueur[0].Nom+" ! Vous avez gagné la partie.");
+						return true;
+					} else if (joueur2Gagne) {
+						System.out.println("Félicitations "+ListeJoueur[1].Nom+" ! Vous avez gagné la partie.");
+						return true;
+					} else {
+						return false;
+					}
+				}
 		} else {
 				System.out.println("Cette option n'est pas valide. Vérifiez votre clavier pour le prochain tour !");
 				return false;
