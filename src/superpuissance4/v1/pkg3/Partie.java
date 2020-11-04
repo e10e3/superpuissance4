@@ -252,6 +252,7 @@ public class Partie {
 					return false;
 				} else {
 					grilleJeu.supprimerJeton(coord_i, coord_j);
+					joueur.utiliserDesintegrateur();
 					grilleJeu.tasserGrille(coord_j);
 					grilleJeu.afficherGrillesurConsole();
 					joueur1Gagne = grilleJeu.estGagnantePourJoueur(ListeJoueur[0]);
