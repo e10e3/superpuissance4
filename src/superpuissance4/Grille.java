@@ -42,9 +42,16 @@ public class Grille {
 	 * @param j La colonne cible
 	 * @return Succès de l'opération
 	 */
+	/*
+	* J'ai ajouté le paramètre "joueur" pour pouvoir gérer l'ajout des désintégrateurs.
+	*/
     public boolean ajouterJetonDansColonne(Jeton jeton, Joueur joueur, int j) {
 		if (colonneRemplie(j)) return false;
 		
+		/*
+		* On initialise l'intérateur à l'indice maximal des lignes pour pouvoir
+		les remonter et placer le jeton au bon endroit.
+		*/
 		int i = nb_lignes-1;
 		while (celluleOccupee(i,j)) {
 			i--;
